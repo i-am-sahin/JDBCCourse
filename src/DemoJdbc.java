@@ -27,10 +27,13 @@ public class DemoJdbc{
         //create connection
         String url = "jdbc:postgresql://localhost:5432/demo";
         String user = "postgres";
-        String passwd = "****";
+        String passwd = "0000";
 
-        String query = "select * from student;";
-        String insertQuery = "insert into student values (5, 'john',44)";
+//        String query = "select * from student;";
+//        String insertQuery = "insert into student values (5, 'john',44)";
+//        String updateQuery = "update student set sname='Max' where sid=5;";
+
+        String deleteQuerey = "delete from student where sid=5";
 
         Connection con = DriverManager.getConnection(url,user,passwd);
         System.out.println("Connection Established");
@@ -42,10 +45,17 @@ public class DemoJdbc{
 
         //execute statement
 
-        ResultSet rs= st.executeQuery(query);
+//        ResultSet rs= st.executeQuery(query);
 
         //inserting values into table
-        boolean status = st.execute(insertQuery);
+//        st.execute(insertQuery);
+
+        //Update value
+//        st.execute(updateQuery);
+
+
+        //Delete Value
+        st.execute(deleteQuerey);
 
 
 
