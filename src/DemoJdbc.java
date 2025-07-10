@@ -31,9 +31,9 @@ public class DemoJdbc{
 
 //        String query = "select * from student;";
 //        String insertQuery = "insert into student values (5, 'john',44)";
-        String updateQuery = "update student set sname='Max' where sid=2;";
+//        String updateQuery = "update student set sname='Max' where sid=2;";
 
-//        String deleteQuerey = "delete from student where sid=5";
+        String deleteQuerey = "delete from student where sid=5";
 
         Connection con = DriverManager.getConnection(url,user,passwd);
         System.out.println("Connection Established");
@@ -51,11 +51,11 @@ public class DemoJdbc{
 //        st.execute(insertQuery);
 
         //Update value
-        st.execute(updateQuery);
+//        st.execute(updateQuery);
 
 
         //Delete Value
-//        st.execute(deleteQuerey);
+        st.execute(deleteQuerey);
 
 
 
