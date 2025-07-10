@@ -29,9 +29,28 @@ public class DemoJdbc{
         String user = "postgres";
         String passwd = "****";
 
-        Connection con = DriverManager.getConnection(url,user,passwd);
+        String query = "select sname from student where sid = 1;";
 
+        Connection con = DriverManager.getConnection(url,user,passwd);
         System.out.println("Connection Established");
+
+//        create statement
+
+        Statement st = con.createStatement();
+
+
+        //execute statement
+
+        ResultSet rs= st.executeQuery(query);
+        rs.next();
+        String name = rs.getString("sname");
+
+        System.out.println("The name of the student is " + name);
+//        System.out.println(rs.next());
+        con.close(); //Closing the connection
+        System.out.println("Connection Closed!");
+
+
 
     }
 }
