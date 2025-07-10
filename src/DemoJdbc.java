@@ -30,6 +30,7 @@ public class DemoJdbc{
         String passwd = "****";
 
         String query = "select * from student;";
+        String insertQuery = "insert into student values (5, 'john',44)";
 
         Connection con = DriverManager.getConnection(url,user,passwd);
         System.out.println("Connection Established");
@@ -42,6 +43,13 @@ public class DemoJdbc{
         //execute statement
 
         ResultSet rs= st.executeQuery(query);
+
+        //inserting values into table
+        boolean status = st.execute(insertQuery);
+
+
+
+
 //        rs.next();
 //        String name = rs.getString("sname");
 //
@@ -50,12 +58,12 @@ public class DemoJdbc{
 
 
         //Fetching All the data
-        while (rs.next()){
-            System.out.print(rs.getInt(1) + " - ");
-            System.out.print(rs.getString(2) + " - ");
-            System.out.print(rs.getInt(3));
-            System.out.println();
-        }
+//        while (rs.next()){
+//            System.out.print(rs.getInt(1) + " - ");
+//            System.out.print(rs.getString(2) + " - ");
+//            System.out.print(rs.getInt(3));
+//            System.out.println();
+//        }
 //        System.out.println(rs.next());
         con.close(); //Closing the connection
         System.out.println("Connection Closed!");
