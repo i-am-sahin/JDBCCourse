@@ -24,17 +24,17 @@ public class DemoJdbc{
 //            System.out.println(e);
 //        }
 
-        int sid = 505;
-        String sname = "maxxxxx";
-        int num = 56;
+        int sid = 405;
+        String sname = "Rishu";
+        int num = 82;
 
         //create connection
         String url = "jdbc:postgresql://localhost:5432/demo";
         String user = "postgres";
-        String passwd = "**** ";
+        String passwd = "****";
 
 //        String query = "select * from student;";
-        String insertQuery = "insert into student values (" + sid + ",  ' " + sname +" ' ,  " +num + ")";
+        String insertQuery = "insert into student values ( ? ,? ,?)";
 //        String updateQuery = "update student set sname='Max' where sid=2;";
 
 //        String deleteQuerey = "delete from student where sid=5";
@@ -44,7 +44,9 @@ public class DemoJdbc{
 
 //        create statement
 
-        Statement st = con.createStatement();
+//        Statement st = con.createStatement();
+
+        PreparedStatement pSt = con.prepareStatement(insertQuery);
 
 
         //execute statement
@@ -52,7 +54,14 @@ public class DemoJdbc{
 //        ResultSet rs= st.executeQuery(query);
 
         //inserting values into table
-        st.execute(insertQuery);
+//        st.execute(insertQuery);
+
+
+        pSt.setInt(1,sid);
+        pSt.setString(2,sname);
+        pSt.setInt(3,num);
+
+        pSt.execute();
 
         //Update value
 //        st.execute(updateQuery);
