@@ -24,16 +24,20 @@ public class DemoJdbc{
 //            System.out.println(e);
 //        }
 
+        int sid = 505;
+        String sname = "maxxxxx";
+        int num = 56;
+
         //create connection
         String url = "jdbc:postgresql://localhost:5432/demo";
         String user = "postgres";
-        String passwd = "****";
+        String passwd = "**** ";
 
 //        String query = "select * from student;";
-//        String insertQuery = "insert into student values (5, 'john',44)";
+        String insertQuery = "insert into student values (" + sid + ",  ' " + sname +" ' ,  " +num + ")";
 //        String updateQuery = "update student set sname='Max' where sid=2;";
 
-        String deleteQuerey = "delete from student where sid=5";
+//        String deleteQuerey = "delete from student where sid=5";
 
         Connection con = DriverManager.getConnection(url,user,passwd);
         System.out.println("Connection Established");
@@ -48,14 +52,14 @@ public class DemoJdbc{
 //        ResultSet rs= st.executeQuery(query);
 
         //inserting values into table
-//        st.execute(insertQuery);
+        st.execute(insertQuery);
 
         //Update value
 //        st.execute(updateQuery);
 
 
         //Delete Value
-        st.execute(deleteQuerey);
+//        st.execute(deleteQuerey);
 
 
 
