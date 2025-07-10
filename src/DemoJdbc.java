@@ -27,7 +27,7 @@ public class DemoJdbc{
         //create connection
         String url = "jdbc:postgresql://localhost:5432/demo";
         String user = "postgres";
-        String passwd = "0000";
+        String passwd = "****";
 
         String query = "select * from student;";
 
