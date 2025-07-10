@@ -27,9 +27,9 @@ public class DemoJdbc{
         //create connection
         String url = "jdbc:postgresql://localhost:5432/demo";
         String user = "postgres";
-        String passwd = "****";
+        String passwd = "0000";
 
-        String query = "select sname from student where sid = 1;";
+        String query = "select * from student;";
 
         Connection con = DriverManager.getConnection(url,user,passwd);
         System.out.println("Connection Established");
@@ -42,10 +42,20 @@ public class DemoJdbc{
         //execute statement
 
         ResultSet rs= st.executeQuery(query);
-        rs.next();
-        String name = rs.getString("sname");
+//        rs.next();
+//        String name = rs.getString("sname");
+//
+//        System.out.println("The name of the student is " + name);
 
-        System.out.println("The name of the student is " + name);
+
+
+        //Fetching All the data
+        while (rs.next()){
+            System.out.print(rs.getInt(1) + " - ");
+            System.out.print(rs.getString(2) + " - ");
+            System.out.print(rs.getInt(3));
+            System.out.println();
+        }
 //        System.out.println(rs.next());
         con.close(); //Closing the connection
         System.out.println("Connection Closed!");
